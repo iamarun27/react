@@ -1,0 +1,14 @@
+react js = library
+GSAP - moving animation
+Lenis - scrolling smoothness
+swiper js - sliders
+three js - 3D elements
+
+react js - develop by facebook
+ library vs 
+ framework = provide all the ecosystem
+
+react - make ui
+react-dom = ui ko connect krta h browser se
+
+

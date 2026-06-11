@@ -1,0 +1,22 @@
+react - js library used to make SPA (frontend).
+library - customization allowed
+framework - already created
+
+why????
+1. Virtual DOM
+
+virtual dom - copy of real dom vs real dom - actual dom
+
+reconsilation - it is the process where virtual dom compare to real dom (diffing) and whatever changes accure . it will render that part
+
+export / import
+
+default export - only 1 allowed 
+named export - multiple allowed
+
+how to create react js application
+
+npm create vite
+npm = node package manager
+
+components - reusable piece of code 

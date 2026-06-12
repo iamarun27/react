@@ -20,3 +20,10 @@ npm create vite
 npm = node package manager
 
 components - reusable piece of code 
+
+props - data flow parent to child
+props se data object ki form m jata h
+
+{data.map(e)=>{
+  return console.log(e.name)
+}}

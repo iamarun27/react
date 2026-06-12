@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.nav {
+  background-color: rgba(12, 177, 23, 0.85);
+  height: 10vh;
+  width: 100%;
+}
+
+.section {
+  background-color: rgba(29, 200, 117, 0.79);
+  height: 90vh;
+  width: 100%;
+}
+.center {
+  width: 400px;
+  height: 400px;
+  margin-left: 30vw;
+  text-align: center;
+  background-color: yellow;
+}

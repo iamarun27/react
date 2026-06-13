@@ -1,18 +1,47 @@
 import React from "react";
+import Card from "./components/Card";
+import { useState } from "react";
 
 const App = () => {
+  const [postData, setPostData] = useState([
+    {
+      id: 1,
+      name: "Arun",
+      desc: "Web Developer",
+      likeCount: 0,
+    },
+    {
+      id: 2,
+      name: "Aman",
+      desc: "Farmer",
+      likeCount: 0,
+    },
+  ]);
+
+  const like = (id) => {
+    //console.log(id);
+
+    // prev state
+    setPostData((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, likeCount: item.likeCount + 1 } : item,
+      ),
+    );
+  };
+
+  const disLike = (id) => {
+    setPostData((prev) =>
+      prev.map((item) =>
+        item.id === id && item.likeCount >= 1
+          ? { ...item, likeCount: item.likeCount - 1 }
+          : item,
+      ),
+    );
+  };
+
   return (
-    <div className="p-5">
-      <div className="card w-60 h-60 bg-zinc-600 rounded-md ">
-        <img
-          src="https://images.unsplash.com/photo-1781084819510-d401a1e77a7c?q=80&w=1967&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-        />
-        <h1>Arun Kumar</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <button>Like</button>
-        <button>Dislike</button>
-      </div>
+    <div className="px-10 py-5">
+      <Card postData={postData} like={like} disLike={disLike} />
     </div>
   );
 };

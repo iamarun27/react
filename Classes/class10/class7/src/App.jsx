@@ -7,11 +7,24 @@ const App = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [userDesc, setUserDesc] = useState("");
 
-  const [allUsers, setAllUsers] = useState([]);
+  const localData = JSON.parse(localStorage.getItem("all-users")) || [];
+
+  // localStorage.clear();
+
+  // console.log(localData);
+
+  const [allUsers, setAllUsers] = useState(localData);
+
   const deleteHandler = (idx) => {
     const copyUsers = [...allUsers];
-    copyUsers.splice(idx, 1);
+
+    const conf = confirm("Are u really want to delete this element ?");
+
+    if (conf) copyUsers.splice(idx, 1);
+    else alert("Element not deleted");
     setAllUsers(copyUsers);
+    localStorage.setItem("all-users", JSON.stringify(copyUsers));
+
     // console.log(copyUsers)
 
     // console.log("Deleted")
@@ -21,7 +34,10 @@ const App = () => {
     const oldUsers = [...allUsers];
     oldUsers.push({ userName, userRole, userDesc, imageUrl });
     setAllUsers(oldUsers);
-    console.log(oldUsers);
+
+    localStorage.setItem("all-users", JSON.stringify(oldUsers));
+
+    // console.log(oldUsers);
     // console.log(userName,userRole,imageUrl,userDesc);
     setUserName("");
     setUserRole("");
@@ -37,6 +53,7 @@ const App = () => {
         className="flex flex-wrap p-2 justify-center"
       >
         <input
+          required
           value={userName}
           onChange={(e) => {
             setUserName(e.target.value);
@@ -46,6 +63,7 @@ const App = () => {
           placeholder="Enter Your Name"
         />
         <input
+          required
           value={imageUrl}
           onChange={(e) => {
             setImageUrl(e.target.value);
@@ -55,6 +73,7 @@ const App = () => {
           placeholder="Image URL"
         />
         <input
+          required
           value={userRole}
           onChange={(e) => {
             setUserRole(e.target.value);
@@ -64,6 +83,7 @@ const App = () => {
           placeholder="Enter Role"
         />
         <input
+          required
           value={userDesc}
           onChange={(e) => {
             setUserDesc(e.target.value);
@@ -78,7 +98,7 @@ const App = () => {
         </button>
       </form>
 
-      <div className="flex flex-wrap px-4 py-10 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
         {allUsers.map((elem, idx) => {
           return <Card idx={idx} elem={elem} deleteHandler={deleteHandler} />;
         })}

@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 600;
+  position: absolute;
+  top: 30vh;
+  left: 50vw;
+  text-decoration: underline;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-size: 80px;
+  font-weight: 600;
+  position: absolute;
+  top: 70vh;
+  left: 50vw;
+  text-decoration: underline;
+  transform: translate(-50%, -50%);
+}
+h3 {
+  font-size: 80px;
+  font-weight: 600;
+  position: absolute;
+  top: 90vh;
+  left: 50vw;
+  text-decoration: underline;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  font-size: 50px;
+  font-weight: 300;
+  position: absolute;
+  top: 95vh;
+  left: 80vw;
+  text-decoration: underline;
+  transform: translate(-50%, -50%);
+}
